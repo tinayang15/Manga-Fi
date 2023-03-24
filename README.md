@@ -5,15 +5,14 @@
 
 ## ***Description***
 ***
-#### Med-Minder is an application that allows healthcare administration to personalized a list of medications for each patient. Within each medication added, you are able to include prescription directions.
+#### Experience the best in manga with our app, Manga-Fi! Browse and read your favorite manga titles on the go, discover new series, and stay up to date with the latest releases. Our app offers a user-friendly interface, customizable reading options, and a vast library of manga titles to choose from. Join our community of manga fans and unleash your inner otaku today!
 
 ## ***Getting Started***
 ***
 ### Click to use Manga-Fi: [Manga-Fi](insertLink)
 
 ![Image](Insert Image)
-### Med-Minder is used to personalized a list of medications for each patient:
-* 
+### Manga-Fi getting started
 
 ## ***Technologies Used***
 ***
