@@ -30,8 +30,8 @@
 
 ## ***Materials Used***
 ***
-* Link to Trello: [Manga-FiTrello](https://trello.com/b/9M6zwvLj/manga-fi)
-* Link to ERD & Hierarchy Map: [Manga-FiERDHierarchy](https://lucid.app/lucidchart/0a6f9546-8824-4cf0-989f-261697cb9625/edit?invitationId=inv_09b06d2c-85bd-4ad1-8558-bbe4d85a60b9&page=0_0#)
+* Link to Trello: [Manga-FiTrello](https://trello.com/invite/b/9M6zwvLj/ATTI2b8fc03019f132dec4488cf208fe4ecc43AF7E83/manga-fi)
+* Link to ERD & Hierarchy Map: [Manga-FiERDHierarchy](https://lucid.app/lucidchart/0a6f9546-8824-4cf0-989f-261697cb9625/edit?viewport_loc=-1334%2C-93%2C3299%2C3391%2C0_0&invitationId=inv_09b06d2c-85bd-4ad1-8558-bbe4d85a60b9)
 
 ## ***Future Features***
 * 
