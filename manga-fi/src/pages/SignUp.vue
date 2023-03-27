@@ -19,7 +19,10 @@ import axios from 'axios'
 export default {
     name: 'SignUp',
     data: () => ({
-
+        newName: '',
+        newEmail: '',
+        newPassword: '',
+        newImage: '',
     }),
     mounted() {
 
