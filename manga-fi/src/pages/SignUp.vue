@@ -28,6 +28,20 @@ export default {
 
     },
     methods: {
+        async handleSubmit(e) {
+            e.preventDefault()
+            const newUser = {
+                name: this.newName,
+                email: this.newEmail,
+                password: this.newPassword,
+                image: this.newImage
+            }
+            const res = await axios.post(`http://127.0.0.1:5000/users`, newUser)
+            // const res = await axios.post(`http://localhost:5000/users`, newUser)
+            console.log(res)
+            this.$router.push('/login')
+        },
+
     }
 }
 </script>
