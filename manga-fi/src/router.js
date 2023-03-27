@@ -1,0 +1,5 @@
+import { createRouter, createWebHistory } from 'vue-router'
+import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage'
+import SignUp from './pages/SignUp'
+import FavoriteList from './pages/FavoriteList'

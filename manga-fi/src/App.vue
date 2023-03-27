@@ -1,4 +1,5 @@
 <template>
+  <header></header>
   <HomePage msg="Welcome to Your Vue.js App" />
 </template>
 
