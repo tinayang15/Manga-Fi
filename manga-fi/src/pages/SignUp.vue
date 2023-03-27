@@ -41,7 +41,9 @@ export default {
             console.log(res)
             this.$router.push('/login')
         },
-
+        handleChange(name) {
+            this[name] = event.target.value
+        }
     }
 }
 </script>
