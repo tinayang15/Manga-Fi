@@ -1,15 +1,35 @@
 <template>
-  <header></header>
-  <HomePage msg="Welcome to Your Vue.js App" />
+  <header>
+    <NavBar v-if='isLoggedIn' />
+  </header>
+  <SignUp v-if='!isLoggedIn' @signup="handleSignup" />
+  <LoginPage v-if='!isLoggedIn' @login="handleLogin" />
 </template>
 
 <script>
-import HomePage from './pages/HomePage.vue'
+import SignUp from './pages/SignUp.vue'
+import NavBar from './components/NavBar.vue'
+import LoginPage from './pages/LoginPage.vue'
 
 export default {
   name: 'App',
   components: {
-    HomePage
+    SignUp,
+    NavBar,
+    LoginPage
+  },
+  data() {
+    return {
+      isLoggedIn: false
+    }
+  },
+  methods: {
+    handleSignup() {
+      this.isLoggedIn = true
+    },
+    handleLogin() {
+      this.isLoggedIn = true
+    }
   }
 }
 </script>

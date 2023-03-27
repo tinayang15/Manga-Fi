@@ -1,4 +1,6 @@
-<template></template>
+<template>
+    <div>FavoriteList</div>
+</template>
 
 <script>
 

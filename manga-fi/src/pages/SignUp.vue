@@ -1,4 +1,6 @@
-<template></template>
+<template>
+    <div>SignUp</div>
+</template>
 
 <script>
 

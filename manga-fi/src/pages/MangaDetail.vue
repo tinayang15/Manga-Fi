@@ -1,4 +1,6 @@
-<template></template>
+<template>
+    <div>MangaDetail</div>
+</template>
 
 <script>
 

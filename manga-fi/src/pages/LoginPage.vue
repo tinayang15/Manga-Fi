@@ -1,4 +1,6 @@
-<template></template>
+<template>
+    <div>LoginPage</div>
+</template>
 
 <script>
 

@@ -1,17 +1,15 @@
-<template></template>
+<template>
+    <nav>
+        <router-link to="/home">Home</router-link>
+        <router-link to="/:user_id/favoritelist">Favorite List</router-link>
+        <router-link to="/about">About</router-link>
+    </nav>
+</template>
 
 <script>
 
 export default {
     name: 'NavBar',
-    data: () => ({
-    }),
-    mounted() {
-
-    },
-    methods: {
-
-    }
 }
 </script>
 

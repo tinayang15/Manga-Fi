@@ -14,3 +14,10 @@ const routes = [
     { path: '/:user_id/manga/:manga_id', component: MangaDetail, name: 'MangaDetail' },
     { path: '/:user_id/manga/:manga_id/chapter/:chapter_id', component: MangaChapter, name: 'MangaChapter' },
 ]
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes
+})
+
+export default router

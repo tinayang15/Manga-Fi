@@ -1,4 +1,6 @@
-<template></template>
+<template>
+    <div>MangaComment</div>
+</template>
 
 <script>
 
