@@ -30,7 +30,7 @@ export default {
                     alert('Invalid email or password')
                     return
                 } else {
-                    this.$router.push(`/home/${user.id}`)
+                    this.$router.push(`/${user.id}/home`)
                 }
             } catch (error) {
                 console.log(error)
