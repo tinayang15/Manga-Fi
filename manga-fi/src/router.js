@@ -7,9 +7,9 @@ import MangaChapter from './pages/MangaChapter'
 import MangaDetail from './pages/MangaDetail'
 
 const routes = [
-    { path: '/', component: SignUp, name: 'SignUp' },
-    { path: '/login', component: LoginPage, name: 'LoginPage' },
-    { path: '/:user_id/home', component: HomePage, name: 'HomePage' },
+    { path: '/', component: SignUp, name: 'SignUp', meta: { requiresAuth: false } },
+    { path: '/login', component: LoginPage, name: 'LoginPage', meta: { requiresAuth: false } },
+    { path: '/:user_id/home', component: HomePage, name: 'HomePage', meta: { requiresAuth: true } },
     { path: '/:user_id/favoritelist', component: FavoriteList, name: 'FavoriteList' },
     { path: '/:user_id/manga/:manga_id', component: MangaDetail, name: 'MangaDetail' },
     { path: '/:user_id/manga/:manga_id/chapter/:chapter_id', component: MangaChapter, name: 'MangaChapter' },
