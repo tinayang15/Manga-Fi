@@ -2,6 +2,23 @@
     <div>
         <h1 class="mangaFiTitle">Manga-Fi</h1>
         <h2 class="slogan">Manga For Every Mood</h2>
+        <div class="mangaListContainer">
+
+            <div class="mangaList" v-for="manga in mangas" :key="manga.id">
+                <div class="mangaContainer">
+
+                    <router-link :to='"/manga/" + manga.id' class="mangaLink">
+                        <h3>Title: {{ manga.title }}</h3>
+                        <!-- <p>Author: {{ name.name }}</p> -->
+                        <p>Synopsis: {{ manga.descriptionEnglish }}</p>
+                        <p>Status: {{ manga.status }}</p>
+                        <p> State: {{ manga.state }}</p>
+                        <p> Year Created: {{ manga.year }}</p>
+                        <p> Genres: {{ manga.tags }}</p>
+                    </router-link>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -10,7 +27,8 @@ import axios from 'axios'
 export default {
     name: 'HomePage',
     data: () => ({
-        mangas: []
+        mangas: [],
+        // authorNames: []
     }),
     mounted() {
         this.getMangas()
@@ -19,10 +37,33 @@ export default {
         async getMangas() {
             const res = await axios.get(`http://127.0.0.1:5000/mangalist`)
             console.log(res)
-            mangas = res.data
+            this.mangas = res.data.data
+            // const authorIds = this.mangas.map(manga => manga.author_id)
+            // console.log(authorIds)
+            // this.authorNames = await axios.get(`http://127.0.0.1:5000/manga/author/${authorIds}`)
         }
     }
 }
 </script>
 
-<style></style>
+<style>
+.mangaLink {
+    text-decoration: none;
+}
+
+.mangaContainer {
+    border-top: 2px solid black;
+    max-width: 300px;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.mangaListContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+</style>
