@@ -8,8 +8,10 @@
                 <div class="mangaContainer">
 
                     <router-link :to='"/manga/" + manga.id' class="mangaLink">
+                        <img :src="manga.cover_url" alt="" />
                         <h3>Title: {{ manga.title }}</h3>
                         <!-- <p>Author: {{ name.name }}</p> -->
+                        <p>Author: {{ manga.author_name }}</p>
                         <p>Synopsis: {{ manga.descriptionEnglish }}</p>
                         <p>Status: {{ manga.status }}</p>
                         <p> State: {{ manga.state }}</p>
@@ -56,6 +58,11 @@ export default {
     max-width: 300px;
     max-height: 500px;
     overflow-y: scroll;
+}
+
+img {
+    width: 200px;
+    height: 300px;
 }
 
 .mangaListContainer {
