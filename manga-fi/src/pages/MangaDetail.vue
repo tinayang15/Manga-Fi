@@ -18,6 +18,9 @@
         </div>
         <div class="commentsContainer">
             <h1>Comments</h1>
+            <div v-for="comment in comments" :key="comment.id">
+                <p>{{ comment.content }}</p>
+            </div>
 
         </div>
     </div>
