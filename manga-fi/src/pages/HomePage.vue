@@ -4,18 +4,18 @@
         <h2 class="slogan">Manga For Every Mood</h2>
         <div class="mangaListContainer">
 
-            <div class="mangaList" v-for="manga in mangas" :key="manga.id">
+            <div class="mangaList" v-for="manga in mangas" :key="manga.manga_id">
                 <div class="mangaContainer">
 
-                    <router-link :to='"/manga/" + manga.id' class="mangaLink">
+                    <router-link :to='"/manga/" + manga.manga_id' class="mangaLink">
                         <img :src="manga.cover_url" alt="" />
                         <h3>Title: {{ manga.title }}</h3>
                         <!-- <p>Author: {{ name.name }}</p> -->
-                        <p>Author: {{ manga.author_name }}</p>
-                        <p>Synopsis: {{ manga.descriptionEnglish }}</p>
+                        <!-- <p>Author: {{ manga.author_name }}</p>
+                        <p>Synopsis: {{ manga.description_english }}</p>
                         <p>Status: {{ manga.status }}</p>
                         <p> State: {{ manga.state }}</p>
-                        <p> Year Created: {{ manga.year }}</p>
+                        <p> Year Created: {{ manga.year }}</p> -->
                         <p> Genres: {{ manga.tags }}</p>
                     </router-link>
                 </div>
