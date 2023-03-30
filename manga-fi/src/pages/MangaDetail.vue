@@ -7,8 +7,15 @@
         <p>Description: {{ manga.description }}</p>
         <p>{{ manga.publication_demographic }}</p>
         <p>Genres: {{ manga.tags }}</p>
+        <div v-for="chapter in chapters" :key="chapter.id">
+            <h3>Chapters</h3>
+            <router-link to="">
+                <p>{{ chapter.chapter }}</p>
+            </router-link>
+
+        </div>
     </div>
-</div></template>
+</template>
 
 <script>
 import axios from 'axios';
