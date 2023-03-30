@@ -3,7 +3,7 @@
         <img :src="manga.cover_url" alt="">
         <h1>{{ manga.title }}</h1>
         <p>Author: {{ manga.author_name }}</p>
-        <p>Created </p>
+        <p>Created: {{ manga.year }} </p>
         <p>Description: {{ manga.description }}</p>
         <p>{{ manga.publication_demographic }}</p>
         <p>Genres: {{ manga.tags }}</p>
@@ -16,6 +16,10 @@
                 </router-link>
             </div>
         </div>
+        <div class="commentsContainer">
+            <h1>Comments</h1>
+
+        </div>
     </div>
 </template>
 
@@ -27,10 +31,12 @@ export default {
     name: 'MangaDetail',
     data: () => ({
         manga: '',
-        chapters: []
+        chapters: [],
+        comments: []
     }),
     mounted() {
-        this.getMangaDetail()
+        this.getMangaDetail(),
+            this.getMangaComment()
     },
     methods: {
         async getMangaDetail() {
@@ -40,7 +46,13 @@ export default {
             this.chapters = response.data.data.chapters.data
             console.log(response)
             console.log(this.chapters)
+        },
+        async getMangaComment() {
+            const response = await axios.get(`http://127.0.0.1:5000/comments/manga/${this.$route.params.manga_id}`)
+            this.comments = response.data
+            console.log(response)
         }
+
     }
 }
 </script>
