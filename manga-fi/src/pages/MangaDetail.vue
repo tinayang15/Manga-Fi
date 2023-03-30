@@ -20,8 +20,8 @@
             <h1>Comments</h1>
             <button>Add Comment</button>
             <form @submit="handleSubmit">
-                <input placeholder="Share your thoughts, fellow otaku!" :value="newComment" @change="handleChange"
-                    class='newCommentInput'>
+                <textarea placeholder="Share your thoughts, fellow otaku!" :value="newComment" @change="handleChange"
+                    class='newCommentInput' rows="4" cols="50"></textarea>
                 <button type='submit' class="addComment">Submit</button>
             </form>
             <div v-for="comment in comments" :key="comment.id">
