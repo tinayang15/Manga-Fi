@@ -18,6 +18,12 @@
         </div>
         <div class="commentsContainer">
             <h1>Comments</h1>
+            <button>Add Comment</button>
+            <form @submit="handleSubmit">
+                <input placeholder="Share your thoughts, fellow otaku!" :value="newComment" @change="handleChange"
+                    class='newCommentInput'>
+                <button type='submit' class="addComment">Submit</button>
+            </form>
             <div v-for="comment in comments" :key="comment.id">
                 <p>{{ comment.content }}</p>
             </div>
@@ -35,7 +41,8 @@ export default {
     data: () => ({
         manga: '',
         chapters: [],
-        comments: []
+        comments: [],
+        newComment: ''
     }),
     mounted() {
         this.getMangaDetail(),
