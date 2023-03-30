@@ -20,12 +20,14 @@
             <h1>Comments</h1>
             <button>Add Comment</button>
             <form @submit="handleSubmit">
-                <textarea placeholder="Share your thoughts, fellow otaku!" :value="newComment" @change="handleChange"
-                    class='newCommentInput' rows="4" cols="50"></textarea>
+                <textarea placeholder="Share your thoughts, fellow otaku!" :value="newContent"
+                    @change="handleChange($event, 'newContent')" class='newCommentInput' rows="4" cols="50"></textarea>
                 <button type='submit' class="addComment">Submit</button>
             </form>
             <div v-for="comment in comments" :key="comment.id">
                 <p>{{ comment.content }}</p>
+                <button>Delete</button>
+                <button>Edit</button>
             </div>
 
         </div>
@@ -42,7 +44,7 @@ export default {
         manga: '',
         chapters: [],
         comments: [],
-        newComment: ''
+        newContent: ''
     }),
     mounted() {
         this.getMangaDetail(),
@@ -61,8 +63,21 @@ export default {
             const response = await axios.get(`http://127.0.0.1:5000/comments/manga/${this.$route.params.manga_id}`)
             this.comments = response.data
             console.log(response)
+        },
+        async handleSubmit(e) {
+            e.preventDefault()
+            const newComment = {
+                content: this.newContent,
+                manga_id: `${this.$route.params.manga_id}`,
+                user_id: 1
+            }
+            const res = await axios.post(`http://127.0.0.1:5000/comments`, newComment)
+            console.log(res)
+            this.getMangaComment()
+        },
+        handleChange(event, name) {
+            this[name] = event.target.value
         }
-
     }
 }
 </script>
