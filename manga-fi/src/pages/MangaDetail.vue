@@ -7,12 +7,14 @@
         <p>Description: {{ manga.description }}</p>
         <p>{{ manga.publication_demographic }}</p>
         <p>Genres: {{ manga.tags }}</p>
-        <div v-for="chapter in chapters" :key="chapter.id">
+        <div>
             <h3>Chapters</h3>
-            <router-link to="">
-                <p>{{ chapter.chapter }}</p>
-            </router-link>
-
+            <div v-for="chapter in chapters" :key="chapter.id">
+                <!-- <router-link :to=`"/manga/" + manga.id + "/chapter/" + chapter.id`> -->
+                <router-link :to="'/manga/' + manga.id + '/chapter/' + chapter.id">
+                    <p>Chapter: {{ chapter.chapter }}</p>
+                </router-link>
+            </div>
         </div>
     </div>
 </template>
