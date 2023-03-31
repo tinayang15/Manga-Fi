@@ -18,18 +18,21 @@
         </div>
         <div class="commentsContainer">
             <h1>Comments</h1>
-            <button>Add Comment</button>
-            <form @submit="handleSubmit">
+
+            <button @click="showAddCommentForm = !showAddCommentForm">Add Comment</button>
+            <form v-if="showAddCommentForm" @submit="handleSubmit">
                 <textarea placeholder="Share your thoughts, fellow otaku!" :value="newContent"
                     @change="handleChange($event, 'newContent')" class='newCommentInput' rows="4" cols="50"></textarea>
                 <button type='submit' class="addComment">Submit</button>
             </form>
+
             <div v-for="comment in comments" :key="comment.id">
                 <p>{{ comment.content }}</p>
-                <button @click="handleDelete(comment)">Delete</button>
-                <button>Edit</button>
 
-                <form @submit="handleUpdate($event, comment)">
+                <button @click="handleDelete(comment)">Delete</button>
+
+                <button @click="showingUpdateForm[comment.id] = !showingUpdateForm[comment.id]">Edit</button>
+                <form v-if="showingUpdateForm[comment.id]" @submit="handleUpdate($event, comment)">
                     <textarea :value="comment.content" @change="handleChange($event, 'updateContent')"
                         class='newContentInput' rows="4" cols="50"></textarea>
                     <button type='submit' class="addComment">Submit</button>
@@ -51,7 +54,9 @@ export default {
         chapters: [],
         comments: [],
         newContent: '',
-        updateContent: ''
+        updateContent: '',
+        showingUpdateForm: {},
+        showAddCommentForm: false,
     }),
     mounted() {
         this.getMangaDetail(),
@@ -79,6 +84,8 @@ export default {
                 user_id: 1
             }
             const res = await axios.post(`http://127.0.0.1:5000/comments`, newComment)
+            this.showAddCommentForm = false
+            this.newContent = ''
             console.log(res)
             this.getMangaComment()
         },
@@ -91,7 +98,7 @@ export default {
             this.getMangaComment()
         },
         async handleUpdate(e, comment) {
-            console.log('here', comment)
+            // console.log('here', comment)
             e.preventDefault()
             const updatedComment = {
                 // ...comment,
@@ -99,8 +106,9 @@ export default {
             }
             const res = await axios.put(`http://127.0.0.1:5000/comments/${comment.id}`, updatedComment)
             console.log(res)
+            this.showingUpdateForm[comment.id] = false
             this.getMangaComment()
-        }
+        },
 
     }
 }
