@@ -95,7 +95,9 @@ export default {
         async handleDelete(comment) {
             const response = await axios.delete(`http://127.0.0.1:5000/comments/${comment.id}`)
             console.log(response)
-            this.getMangaComment()
+            // this.getMangaComment()
+            const index = this.comments.findIndex(c => c.id === comment.id);
+            this.comments.splice(index, 1);
         },
         async handleUpdate(e, comment) {
             // console.log('here', comment)
