@@ -27,11 +27,11 @@
             <div v-for="comment in comments" :key="comment.id">
                 <p>{{ comment.content }}</p>
                 <button @click="handleDelete(comment)">Delete</button>
-                <button @click="handleEdit(comment)">Edit</button>
+                <button>Edit</button>
 
-                <form @submit="handleUpdate(comment)">
-                    <textarea :value="comment.content" @change="handleChange($event, 'newContent')" class='newContentInput'
-                        rows="4" cols="50"></textarea>
+                <form @submit="handleUpdate($event, comment)">
+                    <textarea :value="comment.content" @change="handleChange($event, 'updateContent')"
+                        class='newContentInput' rows="4" cols="50"></textarea>
                     <button type='submit' class="addComment">Submit</button>
                 </form>
             </div>
@@ -91,14 +91,17 @@ export default {
             this.getMangaComment()
         },
         async handleUpdate(e, comment) {
+            console.log('here', comment)
             e.preventDefault()
             const updatedComment = {
+                // ...comment,
                 content: this.updateContent
             }
             const res = await axios.put(`http://127.0.0.1:5000/comments/${comment.id}`, updatedComment)
             console.log(res)
             this.getMangaComment()
         }
+
     }
 }
 </script>
