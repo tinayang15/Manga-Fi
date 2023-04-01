@@ -2,6 +2,7 @@
     <div>
         <img :src="manga.cover_url" alt="">
         <h1>{{ manga.title }}</h1>
+        <button @click="handleFavorite">Add to Favorites</button>
         <p>Author: {{ manga.author_name }}</p>
         <p>Created: {{ manga.year }} </p>
         <p>Description: {{ manga.description }}</p>
@@ -47,6 +48,7 @@
 import axios from 'axios';
 
 
+
 export default {
     name: 'MangaDetail',
     data: () => ({
@@ -57,6 +59,7 @@ export default {
         updateContent: '',
         showingUpdateForm: {},
         showAddCommentForm: false,
+        favorites: []
     }),
     mounted() {
         this.getMangaDetail(),
@@ -111,6 +114,17 @@ export default {
             this.showingUpdateForm[comment.id] = false
             this.getMangaComment()
         },
+        async handleFavorite() {
+            const favorite = {
+                user_id: 1,
+                manga_id: `${this.$route.params.manga_id}`,
+                favorite_list: `${this.$route.params.manga_id}`
+            }
+            this.favorites.push(favorite)
+            console.log("new", favorite)
+            const response = await axios.post(`http://127.0.0.1:5000/user_manga_lists`, favorite)
+            console.log("here", response)
+        }
 
     }
 }
