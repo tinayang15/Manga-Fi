@@ -150,7 +150,7 @@ export default {
                 const response = await axios.put(`http://127.0.0.1:5000/user_manga_lists/${favoriteListId}`, { favorite_list: currentFavorites });
                 console.log(response)
             }
-            this.getFavorites();
+            // this.getFavorites();
         }
 
     }
