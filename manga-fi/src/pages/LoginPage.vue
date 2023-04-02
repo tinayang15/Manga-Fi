@@ -15,7 +15,8 @@ export default {
     name: 'LoginPage',
     data: () => ({
         email: '',
-        password: ''
+        password: '',
+        isAuthenticated: false
     }),
     mounted() {
     },
@@ -25,12 +26,13 @@ export default {
             try {
                 const users = await axios.get(`http://127.0.0.1:5000/users`)
                 const user = users.data.find(user => user.email === this.email && user.password == this.password)
+                this.isAuthenticated = true
                 console.log(user)
                 if (!user) {
                     alert('Invalid email or password')
                     return
                 } else {
-                    this.$router.push(`/${user.id}/home`)
+                    this.$router.push(`/`)
                 }
             } catch (error) {
                 console.log(error)
@@ -43,4 +45,4 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped></style>

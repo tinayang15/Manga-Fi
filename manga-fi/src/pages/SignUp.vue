@@ -37,6 +37,7 @@ export default {
                 image: this.newImage
             }
             const res = await axios.post(`http://127.0.0.1:5000/users`, newUser)
+            localStorage.setItem('user_id', res.data.id)
             // const res = await axios.post(`http://localhost:5000/users`, newUser)
             console.log(res)
             this.$router.push('/login')

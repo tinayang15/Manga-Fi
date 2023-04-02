@@ -2,9 +2,14 @@
   <header>
     <NavBar />
     <div v-if="isLoggedIn">
-      <button @click="handleSignout">Sign out</button>
+      <!-- <button @click="handleSignout">Sign out</button> -->
     </div>
   </header>
+
+  <body>
+    <router-view></router-view>
+
+  </body>
   <!-- <SignUp v-if='!isLoggedIn && isSigningUp' @signup="handleSignup" /> -->
   <!-- <div v-if="!isLoggedIn && !isSigningUp"> -->
   <!-- <LoginPage v-if="!isLoggedIn && isSigningUp" @login="handleLogin" /> -->
@@ -13,7 +18,6 @@
   <!-- <div v-if="isLoggedIn && !isSigningUp">
     <HomePage v-if="isLoggedIn" /> -->
   <!-- </div> -->
-  <router-view></router-view>
 </template>
 
 <script>
@@ -91,6 +95,20 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-color: #EADFC9;
+  /* height: 100%; */
+  /* background-color: red; */
+  /* margin: 30px; */
+}
+
+header {
+  height: 100%;
+  width: 100%;
+  background: #C1EFAE;
+}
+
+body {
+  background-color: #EADFC9;
+  height: 100%
 }
 </style>

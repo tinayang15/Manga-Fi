@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="homeContainer">
         <h1 class="mangaFiTitle">Manga-Fi</h1>
         <h2 class="slogan">Manga For Every Mood</h2>
         <div class="mangaListContainer">
@@ -48,7 +48,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .mangaLink {
     text-decoration: none;
 }
@@ -72,5 +72,10 @@ img {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.homeContainer {
+    background-color: #EADFC9
+        /* background-color: #ECECEC */
 }
 </style>

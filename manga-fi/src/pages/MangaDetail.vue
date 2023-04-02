@@ -19,25 +19,29 @@
         </div>
         <div class="commentsContainer">
             <h1>Comments</h1>
-
-            <button @click="showAddCommentForm = !showAddCommentForm">Add Comment</button>
-            <form v-if="showAddCommentForm" @submit="handleSubmit">
-                <textarea placeholder="Share your thoughts, fellow otaku!" :value="newContent"
-                    @change="handleChange($event, 'newContent')" class='newCommentInput' rows="4" cols="50"></textarea>
-                <button type='submit' class="addComment">Submit</button>
-            </form>
-
-            <div v-for="comment in comments" :key="comment.id">
-                <p>{{ comment.content }}</p>
-
-                <button @click="handleDelete(comment)">Delete</button>
-
-                <button @click="showingUpdateForm[comment.id] = !showingUpdateForm[comment.id]">Edit</button>
-                <form v-if="showingUpdateForm[comment.id]" @submit="handleUpdate($event, comment)">
-                    <textarea :value="comment.content" @change="handleChange($event, 'updateContent')"
-                        class='newContentInput' rows="4" cols="50"></textarea>
+            <div v-if="isAuthenticated">
+                <button @click="showAddCommentForm = !showAddCommentForm">Add Comment</button>
+                <form v-if="showAddCommentForm" @submit="handleSubmit">
+                    <textarea placeholder="Share your thoughts, fellow otaku!" :value="newContent"
+                        @change="handleChange($event, 'newContent')" class='newCommentInput' rows="4" cols="50"></textarea>
                     <button type='submit' class="addComment">Submit</button>
                 </form>
+
+                <div v-for="comment in comments" :key="comment.id">
+                    <p>{{ comment.content }}</p>
+
+                    <button @click="handleDelete(comment)">Delete</button>
+
+                    <button @click="showingUpdateForm[comment.id] = !showingUpdateForm[comment.id]">Edit</button>
+                    <form v-if="showingUpdateForm[comment.id]" @submit="handleUpdate($event, comment)">
+                        <textarea :value="comment.content" @change="handleChange($event, 'updateContent')"
+                            class='newContentInput' rows="4" cols="50"></textarea>
+                        <button type='submit' class="addComment">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div v-else>
+                <p>Please <router-link to='/login'>sign in</router-link> to add or edit/delete comments.</p>
             </div>
 
         </div>
@@ -59,7 +63,8 @@ export default {
         updateContent: '',
         showingUpdateForm: {},
         showAddCommentForm: false,
-        favorites: []
+        favorites: [],
+        isAuthenticated: false
     }),
     mounted() {
         this.getMangaDetail(),
