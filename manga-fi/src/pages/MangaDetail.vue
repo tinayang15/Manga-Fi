@@ -119,16 +119,38 @@ export default {
             this.showingUpdateForm[comment.id] = false
             this.getMangaComment()
         },
+        // async handleFavorite() {
+        //     const favorite = {
+        //         user_id: localStorage.getItem('user_id'),
+        //         manga_id: `${this.$route.params.manga_id}`,
+        //         favorite_list: [`${this.$route.params.manga_id}`]
+        //     }
+        //     this.favorites.push(favorite)
+        //     console.log("new", favorite)
+        //     const userId = localStorage.getItem('user_id')
+        //     const userFavorites = await axios.get(`http://127.0.0.1:5000/user_manga_lists/user/${userId}`)
+        //     const response = await axios.post(`http://127.0.0.1:5000/user_manga_lists`, favorite)
+        //     const res = await axios.put(`http://127.0.0.1:5000/user_manga_lists`, favorite)
+        //     console.log("here", response)
+        // }
         async handleFavorite() {
-            const favorite = {
-                user_id: 1,
-                manga_id: `${this.$route.params.manga_id}`,
-                favorite_list: `${this.$route.params.manga_id}`
+            const userId = localStorage.getItem('user_id');
+            const getFavoritesResponse = await axios.get(`http://127.0.0.1:5000/user_manga_lists/user/${userId}`);
+
+            if (getFavoritesResponse.data.length === 0) {
+                const res = await axios.post(`http://127.0.0.1:5000//user_manga_lists`, { user_id: userId, manga_id: `${this.$route.params.manga_id}`, favorite_list: [`${this.$route.params.manga_id}`] });
+                console.log(res)
+            } else {
+                // const favoriteListId = getFavoritesResponse.data[0].id;
+                // const response = await axios.put(`http://127.0.0.1:5000/user_manga_lists/user/${userId}`, { favorite_list: [`${this.$route.params.manga_id}`] });
+                // console.log(response)
+                const favoriteListId = getFavoritesResponse.data[0].id;
+                const currentFavorites = getFavoritesResponse.data[0].favorite_list;
+                currentFavorites.push(`${this.$route.params.manga_id}`);
+                const response = await axios.put(`http://127.0.0.1:5000/user_manga_lists/${favoriteListId}`, { favorite_list: currentFavorites });
+                console.log(response)
             }
-            this.favorites.push(favorite)
-            console.log("new", favorite)
-            const response = await axios.post(`http://127.0.0.1:5000/user_manga_lists`, favorite)
-            console.log("here", response)
+            this.getFavorites();
         }
 
     }
