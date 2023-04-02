@@ -2,9 +2,11 @@
     <div>
         <h1>Your Favorites List</h1>
         <!-- <div class="favoritesContainer" v-for="favorite in favorites" :key="favorite.id"> -->
-        <p> {{ manga.title }}</p>
-        <img :src="manga.cover_url" alt="">
-        <!-- </div> -->
+        <router-link :to='"/manga/" + manga.id' class="mangaLink">
+            <p> {{ manga.title }}</p>
+            <img :src="manga.cover_url" alt="">
+            <!-- </div> -->
+        </router-link>
     </div>
 </template>
 
