@@ -29,18 +29,24 @@
 
 export default {
     name: 'NavBar',
+    data: () => ({
+        isAuthenticated: false
+    }),
+    mounted() {
+        this.getAuthentication()
+    },
     methods: {
         signOut() {
-            localStorage.removeItem('user_id')
+            localStorage.removeItem('isAuthenticated')
         },
-        computed: {
-            isAuthenticated() {
-                // const user_id = localStorage.getItem('user_id')
-                return true
-            }
+        getAuthentication() {
+            const auth = localStorage.getItem('isAuthenticated')
+            this.isAuthenticated = auth
+            console.log(auth)
         }
     }
 }
+// console.log(isAuthenticated)
 </script>
 
 <style scoped>
