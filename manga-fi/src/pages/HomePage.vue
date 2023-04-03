@@ -33,6 +33,7 @@ export default {
         // authorNames: []
     }),
     mounted() {
+        // location.reload()
         this.getMangas()
     },
     methods: {

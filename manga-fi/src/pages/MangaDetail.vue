@@ -2,7 +2,7 @@
     <div>
         <img :src="manga.cover_url" alt="">
         <h1>{{ manga.title }}</h1>
-        <button @click="handleFavorite">Add to Favorites</button>
+        <button @click="handleFavorite" v-if="isAuthenticated !== isAuth">Add to Favorites</button>
         <p>Author: {{ manga.author_name }}</p>
         <p>Created: {{ manga.year }} </p>
         <p>Description: {{ manga.description }}</p>
@@ -19,7 +19,7 @@
         </div>
         <div class="commentsContainer">
             <h1>Comments</h1>
-            <div v-if="isAuthenticated">
+            <div v-if="isAuthenticated !== isAuth">
                 <button @click="showAddCommentForm = !showAddCommentForm">Add Comment</button>
                 <form v-if="showAddCommentForm" @submit="handleSubmit">
                     <textarea placeholder="Share your thoughts, fellow otaku!" :value="newContent"
@@ -64,13 +64,22 @@ export default {
         showingUpdateForm: {},
         showAddCommentForm: false,
         favorites: [],
-        isAuthenticated: false
+        isAuthenticated: false,
+        isAuth: false
     }),
     mounted() {
-        this.getMangaDetail(),
+        this.getAuthentication(),
+            this.getMangaDetail(),
             this.getMangaComment()
     },
     methods: {
+        getAuthentication() {
+            const auth = localStorage.getItem('isAuthenticated')
+            this.isAuth = Boolean(auth)
+            // console.log(isAuthenticated)
+            console.log(this.isAuth)
+            console.log(auth)
+        },
         async getMangaDetail() {
             const response = await axios.get(`http://127.0.0.1:5000/manga/${this.$route.params.manga_id}`)
             // const response = await axios.get(`http://localhost:5000/manga/${this.$route.params.manga_id}`)
@@ -89,7 +98,7 @@ export default {
             const newComment = {
                 content: this.newContent,
                 manga_id: `${this.$route.params.manga_id}`,
-                user_id: 1
+                user_id: localStorage.getItem('user_id')
             }
             const res = await axios.post(`http://127.0.0.1:5000/comments`, newComment)
             this.showAddCommentForm = false
@@ -138,7 +147,7 @@ export default {
             const getFavoritesResponse = await axios.get(`http://127.0.0.1:5000/user_manga_lists/user/${userId}`);
 
             if (getFavoritesResponse.data.length === 0) {
-                const res = await axios.post(`http://127.0.0.1:5000//user_manga_lists`, { user_id: userId, manga_id: `${this.$route.params.manga_id}`, favorite_list: [`${this.$route.params.manga_id}`] });
+                const res = await axios.post(`http://127.0.0.1:5000//user_manga_lists`, { user_id: localStorage.getItem('user_id'), manga_id: `${this.$route.params.manga_id}`, favorite_list: [`${this.$route.params.manga_id}`] });
                 console.log(res)
             } else {
                 // const favoriteListId = getFavoritesResponse.data[0].id;
@@ -152,7 +161,6 @@ export default {
             }
             // this.getFavorites();
         }
-
     }
 }
 </script>

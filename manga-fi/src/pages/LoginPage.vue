@@ -6,6 +6,7 @@
             <input placeholder="Enter Password" v-model="password" class="addName" @input="handleChange('password')">
             <button type="submit" class="loginBtn">Log In</button>
         </form>
+        <p>Not A User? Create Your Account <router-link to="/signup" class="link">Sign Up</router-link></p>
     </div>
 </template>
 
@@ -16,9 +17,10 @@ export default {
     data: () => ({
         email: '',
         password: '',
-        isAuthenticated: false
+        isAuthenticated: false,
     }),
     mounted() {
+        // window.alert()
     },
     methods: {
         async handleSubmit(e) {
@@ -26,14 +28,13 @@ export default {
             try {
                 const users = await axios.get(`http://127.0.0.1:5000/users`)
                 const user = users.data.find(user => user.email === this.email && user.password == this.password)
-                localStorage.setItem('user_id', user.id)
-                localStorage.setItem('isAuthenticated', true)
-                // this.isAuthenticated = true
-                console.log(user)
                 if (!user) {
-                    alert('Invalid email or password')
+                    window.alert('Invalid email or password')
                     return
                 } else {
+                    localStorage.setItem('user_id', user.id || '')
+                    localStorage.setItem('isAuthenticated', true)
+                    this.isAuthenticated = true
                     this.$router.push(`/`)
                 }
             } catch (error) {

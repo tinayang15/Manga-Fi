@@ -1,6 +1,6 @@
 <template>
   <header>
-    <NavBar />
+    <NavBar :key="$route.fullPath" />
     <div v-if="isLoggedIn">
       <!-- <button @click="handleSignout">Sign out</button> -->
     </div>

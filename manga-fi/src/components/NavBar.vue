@@ -10,13 +10,12 @@
             </div>
             <div class="others">
                 <router-link to="/" class="link">Home</router-link>
-                <router-link to="/:user_id/favoritelist" class="link">Favorite List</router-link>
+                <router-link to="/favoritelist" class="link">Favorite List</router-link>
                 <router-link to="/about" class="link">About</router-link>
                 <div v-if="isAuthenticated">
-                    <a href="#" @click.prevent="signOut">Sign Out</a>
+                    <router-link to="/login" class="link" @click="signOut">SignOut</router-link>
                 </div>
                 <div v-else>
-                    <router-link to="/signup" class="link">Sign Up</router-link>
                     <router-link to="/login" class="link">Login</router-link>
                 </div>
 
@@ -37,12 +36,15 @@ export default {
     },
     methods: {
         signOut() {
+            this.isAuthenticated = false
+            localStorage.removeItem('user_id')
             localStorage.removeItem('isAuthenticated')
+            // localStorage.setItem('isAuthenticated', false)
         },
         getAuthentication() {
             const auth = localStorage.getItem('isAuthenticated')
-            this.isAuthenticated = auth
-            console.log(auth)
+            this.isAuthenticated = Boolean(auth)
+            // console.log(this.isAuthenticated)
         }
     }
 }
