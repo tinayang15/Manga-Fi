@@ -88,14 +88,14 @@ export default {
             console.log(auth)
         },
         async getMangaDetail() {
-            const response = await axios.get(`http://127.0.0.1:5000/manga/${this.$route.params.manga_id}`)
+            const response = await axios.get(`https://manga-fi.herokuapp.com/manga/${this.$route.params.manga_id}`)
             this.manga = response.data.data
             this.chapters = response.data.data.chapters.data
             console.log(response)
             console.log(this.chapters)
         },
         async getMangaComment() {
-            const response = await axios.get(`http://127.0.0.1:5000/comments/manga/${this.$route.params.manga_id}`)
+            const response = await axios.get(`https://manga-fi.herokuapp.com/comments/manga/${this.$route.params.manga_id}`)
             this.comments = response.data
             console.log(response)
         },
@@ -106,7 +106,7 @@ export default {
                 manga_id: `${this.$route.params.manga_id}`,
                 user_id: localStorage.getItem('user_id')
             }
-            const res = await axios.post(`http://127.0.0.1:5000/comments`, newComment)
+            const res = await axios.post(`https://manga-fi.herokuapp.com/comments`, newComment)
             this.showAddCommentForm = false
             this.newContent = ''
             console.log(res)
@@ -116,7 +116,7 @@ export default {
             this[name] = event.target.value
         },
         async handleDelete(comment) {
-            const response = await axios.delete(`http://127.0.0.1:5000/comments/${comment.id}`)
+            const response = await axios.delete(`https://manga-fi.herokuapp.com/comments/${comment.id}`)
             console.log(response)
             this.getMangaComment()
         },
@@ -125,24 +125,24 @@ export default {
             const updatedComment = {
                 content: this.updateContent
             }
-            const res = await axios.put(`http://127.0.0.1:5000/comments/${comment.id}`, updatedComment)
+            const res = await axios.put(`https://manga-fi.herokuapp.com/comments/${comment.id}`, updatedComment)
             console.log(res)
             this.showingUpdateForm[comment.id] = false
             this.getMangaComment()
         },
         async handleFavorite() {
             const userId = localStorage.getItem('user_id');
-            const getFavoritesResponse = await axios.get(`http://127.0.0.1:5000/user_manga_lists/user/${userId}`);
+            const getFavoritesResponse = await axios.get(`https://manga-fi.herokuapp.com/user_manga_lists/user/${userId}`);
 
             if (getFavoritesResponse.data.length === 0) {
-                const res = await axios.post(`http://127.0.0.1:5000//user_manga_lists`, { user_id: localStorage.getItem('user_id'), manga_id: `${this.$route.params.manga_id}`, favorite_list: [`${this.$route.params.manga_id}`] });
+                const res = await axios.post(`https://manga-fi.herokuapp.com/user_manga_lists`, { user_id: localStorage.getItem('user_id'), manga_id: `${this.$route.params.manga_id}`, favorite_list: [`${this.$route.params.manga_id}`] });
                 console.log(res)
                 window.alert('Added to Favorites')
             } else {
                 const favoriteListId = getFavoritesResponse.data[0].id;
                 const currentFavorites = getFavoritesResponse.data[0].favorite_list;
                 currentFavorites.push(`${this.$route.params.manga_id}`);
-                const response = await axios.put(`http://127.0.0.1:5000/user_manga_lists/${favoriteListId}`, { favorite_list: currentFavorites });
+                const response = await axios.put(`https://manga-fi.herokuapp.com/user_manga_lists/${favoriteListId}`, { favorite_list: currentFavorites });
                 console.log(response)
                 window.alert('Added to Favorites')
             }

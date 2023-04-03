@@ -26,7 +26,7 @@ export default {
         async handleSubmit(e) {
             e.preventDefault()
             try {
-                const users = await axios.get(`http://127.0.0.1:5000/users`)
+                const users = await axios.get(`https://manga-fi.herokuapp.com//users`)
                 const user = users.data.find(user => user.email === this.email && user.password == this.password)
                 if (!user) {
                     window.alert('Invalid email or password')
