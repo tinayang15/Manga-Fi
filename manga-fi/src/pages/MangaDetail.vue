@@ -4,15 +4,18 @@
         <div class="titleFavorite">
             <h1 class="mangaTitle">{{ manga.title }}</h1>
             <div class="btn">
-                <button class="favoriteBtn" @click="handleFavorite" v-if="isAuthenticated !== isAuth">Add to
+                <button class="favoriteBtn" @click="handleFavorite" v-if="isAuthenticated !== isAuth">+Add to
                     Favorites</button>
             </div>
         </div>
-        <p class="mangaDetail">Author: {{ manga.author_name }}</p>
-        <p class="mangaDetail">Created: {{ manga.year }} </p>
-        <p class="mangaDetail">Description: {{ manga.description }}</p>
-        <p class="mangaDetail">{{ manga.publication_demographic }}</p>
-        <p class="mangaDetail">Genres: {{ manga.tags }}</p>
+        <div class="details">
+            <p class="mangaDetail">Author: {{ manga.author_name }}</p>
+            <p class="mangaDetail">Released: {{ manga.year }} </p>
+            <p class="mangaDetail">Description: {{ manga.description }}</p>
+            <p class="mangaDetail">Type: {{ manga.publication_demographic }}</p>
+            <p class="mangaDetail">Genre(s): {{ manga.tags }}</p>
+            <p class="mangaDetail">Status: {{ manga.status }}</p>
+        </div>
         <div class="chaptersContainer">
             <h3 class="chaptersList">Chapters</h3>
             <div v-for="chapter in chapters" :key="chapter.id">
@@ -149,6 +152,9 @@ export default {
 img {
     width: 300px;
     height: 400px;
+    margin-top: 40px;
+    border: 2px solid #D7BBA8;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1)
 }
 
 .titleFavorite {
@@ -159,13 +165,47 @@ img {
     text-align: center;
 }
 
-.favoriteBtn {
-    margin-right: -20px;
-    margin-left: 140px;
-}
-
 .mangaTitle {
     margin-left: 220px;
     max-width: 400px;
+    font-weight: 700;
+    text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.384);
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.favoriteBtn {
+    margin-right: -20px;
+    margin-left: 140px;
+    background-color: #F9D9E2;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px;
+    width: 130px;
+    /* margin: 5px; */
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.favoriteBtn:hover {
+    filter: brightness(150%);
+    transition: 0.6s;
+    transform: scale(1.06);
+}
+
+.details {
+    background-color: red;
+    width: 600px;
+    text-align: left;
+    background-color: #D7BBA8;
+    border: 5px solid #f4eae2;
+    padding: 10px;
+    font-weight: 600;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1)
 }
 </style>
