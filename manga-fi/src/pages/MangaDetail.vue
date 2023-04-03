@@ -4,7 +4,7 @@
         <img :src="manga.cover_url" alt="" class="image">
         <div class="titleFavorite">
             <div class="btn">
-                <button class="favoriteBtn" @click="handleFavorite" v-if="isAuthenticated !== isAuth">+Add to
+                <button class="favoriteBtn" @click="handleFavorite" v-if="isAuthenticated !== isAuth">❤️Add to
                     Favorites</button>
             </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="commentsContainer">
             <h1 class="commentsList">Manga Discussion</h1>
             <div class='comments' v-if="isAuthenticated !== isAuth">
-                <button @click="showAddCommentForm = !showAddCommentForm" class="addCommentBtn">+Add Comment</button>
+                <button @click="showAddCommentForm = !showAddCommentForm" class="addCommentBtn">&nbsp;🔥Add Comment</button>
                 <form v-if="showAddCommentForm" @submit="handleSubmit">
                     <textarea placeholder="Share your thoughts, fellow otaku!" :value="newContent"
                         @change="handleChange($event, 'newContent')" class='input' rows="4" cols="50"></textarea>
@@ -49,7 +49,8 @@
                 </div>
             </div>
             <div v-else class="comments">
-                <p class="login">Please <router-link class='link' to='/login'>sign in</router-link> to add or edit/delete
+                <p class="login">Please <router-link class='signinLink' to='/login'>sign in</router-link> to add or
+                    edit/delete
                     comments.</p>
             </div>
 
@@ -136,12 +137,14 @@ export default {
             if (getFavoritesResponse.data.length === 0) {
                 const res = await axios.post(`http://127.0.0.1:5000//user_manga_lists`, { user_id: localStorage.getItem('user_id'), manga_id: `${this.$route.params.manga_id}`, favorite_list: [`${this.$route.params.manga_id}`] });
                 console.log(res)
+                window.alert('Added to Favorites')
             } else {
                 const favoriteListId = getFavoritesResponse.data[0].id;
                 const currentFavorites = getFavoritesResponse.data[0].favorite_list;
                 currentFavorites.push(`${this.$route.params.manga_id}`);
                 const response = await axios.put(`http://127.0.0.1:5000/user_manga_lists/${favoriteListId}`, { favorite_list: currentFavorites });
                 console.log(response)
+                window.alert('Added to Favorites')
             }
         }
     }
@@ -232,7 +235,10 @@ img {
     font-size: 12px;
 }
 
-
+.signinLink {
+    color: #2662ee;
+    text-decoration: none;
+}
 
 .favoriteBtn:hover,
 .addCommentBtn:hover,

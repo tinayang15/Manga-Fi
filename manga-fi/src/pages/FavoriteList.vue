@@ -1,21 +1,22 @@
 <template>
-    <div>
-        <h1>Your Favorites List</h1>
-        <div v-if="isAuthenticated !== isAuth">
+    <div class="favoriteContainer">
+        <h1 class="title">Otaku's Favorites List ❤️</h1>
+        <div v-if="isAuthenticated !== isAuth" class="listContainer">
             <div v-if="mangaList.length > 0">
                 <div class="favoritesContainer" v-for="manga in mangaList" :key="manga.id">
                     <router-link :to='"/manga/" + manga.id' class="mangaLink">
-                        <p> {{ manga.title }}</p>
-                        <img :src="manga.cover_url" alt="">
+                        <p class="mangaTitle"> {{ manga.title }}</p>
+                        <img class="image" :src="manga.cover_url" alt="">
                     </router-link>
                 </div>
             </div>
             <div v-else>
-                <p>No favorite manga(s) added, Otaku!</p>
+                <p class="noFavor">No favorite manga(s) added, Otaku!</p>
             </div>
         </div>
         <div v-else>
-            <p>Please <router-link to='/login'>sign in</router-link> to view your favorite's list.</p>
+            <p class="signIn">Please <router-link to='/login' class="signinLink">sign in</router-link> to view your
+                favorite's list.</p>
         </div>
     </div>
 </template>
@@ -69,5 +70,53 @@ export default {
     }
 }
 </script>
+<style scoped>
+.favoriteContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-<style></style>
+.mangaTitle {
+    margin-top: 20px;
+    max-width: 400px;
+    font-weight: 700;
+    text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.384);
+}
+
+img {
+    width: 300px;
+    height: 400px;
+    margin-top: 2px;
+    border: 2px solid #D7BBA8;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1)
+}
+
+.favoritesContainer {
+    background-color: red;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 450px;
+    text-align: center;
+    background-color: #D7BBA8;
+    border: 5px solid #f4eae2;
+    padding: 10px;
+    font-weight: 600;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signinLink {
+    color: #2662ee;
+    text-decoration: none;
+}
+
+.signIn {
+    font-size: 18px;
+    font-weight: 500;
+}
+</style>

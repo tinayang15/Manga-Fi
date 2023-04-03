@@ -10,7 +10,7 @@
             </div>
             <div class="others">
                 <router-link to="/" class="link">Home</router-link>
-                <router-link to="/favoritelist" class="link">Favorite List</router-link>
+                <router-link to="/favoritelist" class="link">Favorites List</router-link>
                 <router-link to="/about" class="link">About</router-link>
                 <div v-if="isAuthenticated">
                     <router-link to="/login" class="link" @click="signOut">SignOut</router-link>

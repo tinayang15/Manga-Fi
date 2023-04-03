@@ -31,18 +31,17 @@ export default {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 600px;
-    /* background-color: red; */
-    margin: 10px 30px;
-    font-size: 20px;
-    /* border: 2px white solid;
-    border-top-right-radius: 20%;
-    border-top-left-radius: 20%;
-    border-bottom-right-radius: 20%;
-    border-bottom-left-radius: 20%; */
+    height: 500px;
+    margin: 20px 30px;
+    font-size: 18px;
+    background-color: #D7BBA8;
+    border: 5px solid #f4eae2;
+    padding: 15px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .slogan {
     font-style: italic;
+    margin-top: -15px;
 }
 </style>
