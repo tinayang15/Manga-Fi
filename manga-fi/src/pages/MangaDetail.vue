@@ -1,8 +1,8 @@
 <template>
     <div class="headerContainer">
+        <h1 class="mangaTitle">{{ manga.title }}</h1>
         <img :src="manga.cover_url" alt="" class="image">
         <div class="titleFavorite">
-            <h1 class="mangaTitle">{{ manga.title }}</h1>
             <div class="btn">
                 <button class="favoriteBtn" @click="handleFavorite" v-if="isAuthenticated !== isAuth">+Add to
                     Favorites</button>
@@ -11,23 +11,23 @@
         <div class="details">
             <p class="mangaDetail">Author: {{ manga.author_name }}</p>
             <p class="mangaDetail">Released: {{ manga.year }} </p>
-            <p class="mangaDetail">Description: {{ manga.description }}</p>
+            <p class="mangaDetail">Summary: {{ manga.description }}</p>
             <p class="mangaDetail">Type: {{ manga.publication_demographic }}</p>
             <p class="mangaDetail">Genre(s): {{ manga.tags }}</p>
             <p class="mangaDetail">Status: {{ manga.status }}</p>
         </div>
         <div class="chaptersContainer">
-            <h3 class="chaptersList">Chapters</h3>
+            <h2 class="chaptersList">Chapters Released</h2>
             <div v-for="chapter in chapters" :key="chapter.id">
                 <router-link :to="'/manga/' + manga.id + '/chapter/' + chapter.id" class="link">
-                    <p class="chapters">Chapter: {{ chapter.chapter }}</p>
+                    <p class="chapters">Chapter {{ chapter.chapter }}</p>
                 </router-link>
             </div>
         </div>
         <div class="commentsContainer">
-            <h1 class="commentsList">Comments</h1>
+            <h1 class="commentsList">Manga Discussion</h1>
             <div class='comments' v-if="isAuthenticated !== isAuth">
-                <button @click="showAddCommentForm = !showAddCommentForm" class="addCommentBtn">Add Comment</button>
+                <button @click="showAddCommentForm = !showAddCommentForm" class="addCommentBtn">+Add Comment</button>
                 <form v-if="showAddCommentForm" @submit="handleSubmit">
                     <textarea placeholder="Share your thoughts, fellow otaku!" :value="newContent"
                         @change="handleChange($event, 'newContent')" class='input' rows="4" cols="50"></textarea>
@@ -152,7 +152,7 @@ export default {
 img {
     width: 300px;
     height: 400px;
-    margin-top: 40px;
+    margin-top: 20px;
     border: 2px solid #D7BBA8;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1)
 }
@@ -166,7 +166,7 @@ img {
 }
 
 .mangaTitle {
-    margin-left: 220px;
+    margin-top: 40px;
     max-width: 400px;
     font-weight: 700;
     text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.384);
@@ -179,9 +179,10 @@ img {
     align-items: center;
 }
 
+/* //f8275ad6-a2d9-4488-89cc-5ddf7782ccf8 */
 .favoriteBtn {
-    margin-right: -20px;
-    margin-left: 140px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     background-color: #F9D9E2;
     border-radius: 10px;
     cursor: pointer;
@@ -192,16 +193,85 @@ img {
     font-size: 12px;
 }
 
-.favoriteBtn:hover {
+.addCommentBtn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #d9f9ed;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px;
+    width: 130px;
+    /* margin: 5px; */
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.deleteBtn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #FFC9B5;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px;
+    width: 100px;
+    /* margin: 5px; */
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.updateBtn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #FFFFB7;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px;
+    width: 100px;
+    /* margin: 5px; */
+    font-weight: 700;
+    font-size: 12px;
+}
+
+
+
+.favoriteBtn:hover,
+.addCommentBtn:hover,
+.deleteBtn:hover,
+.updateBtn:hover {
     filter: brightness(150%);
     transition: 0.6s;
     transform: scale(1.06);
 }
 
 .details {
-    background-color: red;
     width: 600px;
     text-align: left;
+    background-color: #D7BBA8;
+    border: 5px solid #f4eae2;
+    padding: 10px;
+    font-weight: 600;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1)
+}
+
+.chaptersContainer {
+    text-align: center;
+    margin-top: 40px;
+    width: 600px;
+    max-height: 600px;
+    overflow-y: auto;
+    background-color: #D7BBA8;
+    border: 5px solid #f4eae2;
+    padding: 10px;
+    font-weight: 600;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1)
+}
+
+.commentsContainer {
+    text-align: center;
+    margin-top: 40px;
+    width: 600px;
+    max-height: 900px;
+    overflow-y: auto;
     background-color: #D7BBA8;
     border: 5px solid #f4eae2;
     padding: 10px;
