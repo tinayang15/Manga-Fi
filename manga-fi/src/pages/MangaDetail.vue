@@ -20,7 +20,7 @@
             <h2 class="chaptersList">Chapters Released</h2>
             <div v-for="chapter in chapters" :key="chapter.id">
                 <router-link :to="'/manga/' + manga.id + '/chapter/' + chapter.id" class="link">
-                    <p class="chapters">Chapter {{ chapter.chapter }}</p>
+                    <p class="chapters">Chapter: {{ chapter.chapter }}</p>
                 </router-link>
             </div>
         </div>
@@ -241,6 +241,15 @@ img {
     filter: brightness(150%);
     transition: 0.6s;
     transform: scale(1.06);
+}
+
+.link:hover {
+    color: #d9f9ed;
+}
+
+.link {
+    text-decoration: none;
+    color: #2c3e50;
 }
 
 .details {
