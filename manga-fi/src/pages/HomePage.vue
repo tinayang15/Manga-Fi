@@ -8,15 +8,9 @@
                 <div class="mangaContainer">
 
                     <router-link :to='"/manga/" + manga.manga_id' class="mangaLink">
-                        <img :src="manga.cover_url" alt="" />
-                        <h3>Title: {{ manga.title }}</h3>
-                        <!-- <p>Author: {{ name.name }}</p> -->
-                        <!-- <p>Author: {{ manga.author_name }}</p>
-                        <p>Synopsis: {{ manga.description_english }}</p>
-                        <p>Status: {{ manga.status }}</p>
-                        <p> State: {{ manga.state }}</p>
-                        <p> Year Created: {{ manga.year }}</p> -->
-                        <p> Genres: {{ manga.tags }}</p>
+                        <img :src="manga.cover_url" alt="" class="image" />
+                        <h3 class="mangaTitle">Title: {{ manga.title }}</h3>
+                        <!-- <p class="genres"> Genres: {{ manga.tags }}</p> -->
                     </router-link>
                 </div>
             </div>
@@ -30,10 +24,8 @@ export default {
     name: 'HomePage',
     data: () => ({
         mangas: [],
-        // authorNames: []
     }),
     mounted() {
-        // location.reload()
         this.getMangas()
     },
     methods: {
@@ -41,9 +33,6 @@ export default {
             const res = await axios.get(`http://127.0.0.1:5000/mangalist`)
             console.log(res)
             this.mangas = res.data.data
-            // const authorIds = this.mangas.map(manga => manga.author_id)
-            // console.log(authorIds)
-            // this.authorNames = await axios.get(`http://127.0.0.1:5000/manga/author/${authorIds}`)
         }
     }
 }
@@ -55,10 +44,15 @@ export default {
 }
 
 .mangaContainer {
-    border-top: 2px solid black;
-    max-width: 300px;
-    max-height: 500px;
-    overflow-y: scroll;
+    border: 2px solid #D7BBA8;
+    border-radius: 20px;
+    width: 300px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1)
 }
 
 img {
@@ -77,6 +71,30 @@ img {
 
 .homeContainer {
     background-color: #EADFC9
-        /* background-color: #ECECEC */
+}
+
+.mangaFiTitle {
+    font-size: 4rem;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.slogan {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 50px;
+    margin-top: -20px;
+}
+
+.mangaTitle {
+    font-size: 1.5rem;
+    margin-top: 10 px;
+    text-align: center;
+}
+
+.mangaContainer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rbga(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shdow 0.3s ease-in-out;
 }
 </style>
