@@ -10,6 +10,7 @@
 ## ***Getting Started***
 ***
 ### Click to use Manga-Fi: [Manga-Fi](https://manga-fi.vercel.app/)
+### Click to see Manga-Fi-Api: [Manga-Fi-API](https://github.com/tinayang15/Manga-Fi-API)
 
 ![Image](https://i.imgur.com/fVEJsuy.png)
 ![Image](https://i.imgur.com/wAaBk04.png)
