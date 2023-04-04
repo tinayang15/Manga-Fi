@@ -66,20 +66,19 @@ footer {
   height: 20px;
 }
 
-/* @media only screen and (min-width: 300px) 
-@media only screen and (min-width: 768px)
-@media only screen and (min-width: 1024px)
-@media only screen and (min-width: 1200px)
-@media (max-width: 768px) */
-/* @media only screen and (max-width: 767px) {
-
-} */
-
-/* @media only screen and (min-width: 768px) and (max-width: 1199px) {
-  CSS GOES HERE
+@media only screen and (max-width: 300px) {
+  footer {
+    font-size: 10px;
+  }
 }
 
-@media screen and (min-width: 1200px) {
-  CSS GOES HERE
+/* @media only screen and (min-width: 301px) and (max-width: 768px) {
 } */
+/* @media only screen and (min-width: 1024px)
+@media only screen and (min-width: 1200px)
+@media (max-width: 768px) */
+
+/* @media only screen and (max-width: 767px) {} */
+/* @media only screen and (min-width: 768px) and (max-width: 1199px) {}
+@media screen and (min-width: 1200px) {} */
 </style>

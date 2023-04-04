@@ -111,7 +111,7 @@ img {
 
     .mangaContainer {
         width: 200px;
-        height: 400px;
+        height: 300px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -142,26 +142,6 @@ img {
         font-size: 1.2rem
     }
 
-    /* .mangaContainer {
-    border: 2px solid #D7BBA8;
-    border-radius: 20px;
-    width: 300px;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 25px 10px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1)
-} */
-    /* .mangaContainer {
-        width: 200px;
-        height: 400px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 10px 10px;
-        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1)
-    } */
     .mangaContainer {
         width: 250px;
         height: 450px;
@@ -174,7 +154,5 @@ img {
     }
 }
 
-/* @media screen and (min-width: 1200px) {
-  CSS GOES HERE
-} */
+@media screen and (min-width: 1200px) {}
 </style>

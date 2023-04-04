@@ -112,4 +112,10 @@ export default {
     text-decoration: none;
     color: #007af4;
 }
+
+@media only screen and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {}
+
+@media screen and (min-width: 1200px) {}
 </style>

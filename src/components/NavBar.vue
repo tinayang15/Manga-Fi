@@ -55,7 +55,7 @@ export default {
 nav {
     background: #C1EFAE;
     padding: 15px;
-    font-size: 18px;
+    font-size: 20px;
     font-family: 'Lobster', cursive;
     width: 100%;
     height: 100%;
@@ -97,19 +97,6 @@ nav {
     text-decoration: none;
     transition: .20s;
 }
-
-/* .navAddPatient {
-  margin: 0 20px 0 0;
-  display: flex;
-  max-width: 50vh;
-  background-color: rgb(208, 38, 224);
-  border: 2px solid rgb(208, 38, 224);
-  border-width: 15px;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-  align-items: center;
-  justify-content: center;
-} */
 
 .linkHome:hover {
 
@@ -160,4 +147,33 @@ nav {
     border-radius: 95%;
     border: 2px solid white;
 }
+
+@media only screen and (max-width: 300px) {
+    nav {
+        font-size: 10px;
+    }
+
+    .linkHome {
+        display: none;
+    }
+
+    .logoimg {
+        width: 35px;
+        height: 45px;
+    }
+}
+
+@media only screen and (min-width:301px) and (max-width: 767px) {
+    nav {
+        font-size: 15px;
+    }
+
+    .linkHome {
+        display: none;
+    }
+}
+
+/* @media only screen and (min-width: 768px) and (max-width: 1199px) {}
+
+@media screen and (min-width: 1200px) {} */
 </style>
