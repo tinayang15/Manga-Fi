@@ -30,7 +30,7 @@ export default {
     },
     methods: {
         async getMangas() {
-            const res = await axios.get(`http://127.0.0.1:5000/mangalist`)
+            const res = await axios.get(`https://manga-fi.herokuapp.com/mangalist`)
             console.log(res)
             this.mangas = res.data.data
         }

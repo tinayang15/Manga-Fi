@@ -42,6 +42,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   background-color: #EADFC9;
+  position: relative;
+  min-height: 100vh;
 }
 
 header {
@@ -52,10 +54,15 @@ header {
 
 body {
   background-color: #EADFC9;
-  height: 100%
+  height: 100%;
+  margin-bottom: 60px;
 }
 
 footer {
-  margin: 60px 0 0 0;
+  /* margin: 60px 0 0 0; */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
 }
 </style>

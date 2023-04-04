@@ -43,8 +43,8 @@ export default {
 
 <style scoped>
 .image {
-    height: 900px;
-    width: 500px;
+    height: 1100px;
+    width: 350px;
     border: 2px solid #D7BBA8;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
 }

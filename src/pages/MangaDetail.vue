@@ -285,6 +285,7 @@ img {
 .commentsContainer {
     text-align: center;
     margin-top: 40px;
+    margin-bottom: 40px;
     width: 600px;
     max-height: 900px;
     overflow-y: auto;

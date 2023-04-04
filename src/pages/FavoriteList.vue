@@ -47,7 +47,7 @@ export default {
         },
         async getFavorites() {
             const userId = localStorage.getItem('user_id')
-            const response = await axios.get(`http://127.0.0.1:5000/user_manga_lists/user/${userId}`)
+            const response = await axios.get(`https://manga-fi.herokuapp.com/user_manga_lists/user/${userId}`)
             console.log('response', response)
             // const res = await axios.put(`http://127.0.0.1:5000/user_manga_lists`)
             this.favorites = response.data.map(mangaId => mangaId.favorite_list)
@@ -118,5 +118,6 @@ img {
 .signIn {
     font-size: 18px;
     font-weight: 500;
+    margin-top: -10px;
 }
 </style>
