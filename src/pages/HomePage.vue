@@ -97,4 +97,84 @@ img {
     box-shadow: 0px 10px 20px rbga(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out, box-shdow 0.3s ease-in-out;
 }
+
+/* @media only screen and (min-width: 300px) {} */
+
+@media only screen and (max-width: 767px) {
+    .mangaFiTitle {
+        font-size: 30px;
+    }
+
+    .slogan {
+        font-size: 13px;
+    }
+
+    .mangaContainer {
+        width: 200px;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 10px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1)
+    }
+
+    img {
+        width: 100px;
+        height: 150px;
+    }
+
+    .mangaTitle {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    .mangaFiTitle {
+        font-size: 40px;
+    }
+
+    .slogan {
+        font-size: 16px;
+    }
+
+    .mangaTitle {
+        font-size: 1.2rem
+    }
+
+    /* .mangaContainer {
+    border: 2px solid #D7BBA8;
+    border-radius: 20px;
+    width: 300px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1)
+} */
+    /* .mangaContainer {
+        width: 200px;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 10px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1)
+    } */
+    .mangaContainer {
+        width: 250px;
+        height: 450px;
+        margin: 15px 10px;
+    }
+
+    img {
+        width: 150px;
+        height: 225px;
+    }
+}
+
+/* @media screen and (min-width: 1200px) {
+  CSS GOES HERE
+} */
 </style>

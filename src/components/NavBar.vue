@@ -57,6 +57,8 @@ nav {
     padding: 15px;
     font-size: 18px;
     font-family: 'Lobster', cursive;
+    width: 100%;
+    height: 100%;
 }
 
 
