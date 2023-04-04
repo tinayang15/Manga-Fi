@@ -77,7 +77,14 @@ export default {
 
 .login {
     margin-bottom: 5px;
+    width: 250px;
     font-size: 18px;
+    text-align: center;
+    font-style: italic;
+    color: #2c3e50;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #f4eae2;
 }
 
 .loginBtn {

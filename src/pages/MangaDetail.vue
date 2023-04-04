@@ -11,7 +11,7 @@
         <div class="details">
             <p class="mangaDetail">Author: {{ manga.author_name }}</p>
             <p class="mangaDetail">Released: {{ manga.year }} </p>
-            <p class="mangaDetail">Summary: {{ manga.description }}</p>
+            <p class="mangaDetailSum">Summary: {{ manga.description }}</p>
             <p class="mangaDetail">Type: {{ manga.publication_demographic }}</p>
             <p class="mangaDetail">Genre(s): {{ manga.tags }}</p>
             <p class="mangaDetail">Status: {{ manga.status }}</p>

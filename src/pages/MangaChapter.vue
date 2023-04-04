@@ -61,4 +61,10 @@ export default {
     font-weight: 700;
     font-size: 12px;
 }
+
+.backBtn:hover {
+    filter: brightness(150%);
+    transition: 0.6s;
+    transform: scale(1.06);
+}
 </style>

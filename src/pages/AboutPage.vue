@@ -2,20 +2,20 @@
     <div class="aboutPage">
         <h1 class="aboutManga">About Manga-Fi</h1>
         <p class="slogan">Manga for Every Mood</p>
-        <p class="description">Manga-Fi is the ultimate app for manga lovers everywhere. With a massive library of titles,
-            customizable reading
-            options, and a user-friendly interface, Manga-Fi makes it easy to read your favorite manga on the go. Whether
-            you're a fan of action, romance, comedy, or horror, Manga-Fi has something for everyone. Plus, with our frequent
-            updates and new releases, you'll always stay up to date with the latest and greatest manga titles.<br><br>
-
-            At Manga-Fi, we believe that reading manga should be a fun, immersive experience. That's why we've created an
-            app that puts you in control of your reading experience. Choose your preferred reading style, and with our
-            community of manga fans,
-            you'll always be in good company.<br><br>
-
-            So why should you read manga on Manga-Fi? Simple - we provide an unbeatable combination of variety, convenience,
-            and customization. Whether you're a long-time manga fan or a newcomer to the world of Japanese comics, Manga-Fi
-            is the perfect app for unleashing your inner otaku.</p>
+        <p class="description"> At Manga-Fi, we're all about embracing your inner otaku and indulging in the ultimate
+            reading experience! With our vast selection of manga titles, you can explore and immerse yourself in a world of
+            action, romance, comedy, or horror - whatever your mood may be! Our user-friendly interface and customizable
+            reading options make it easy to get lost in your favorite manga, no matter where you are. Plus, with frequent
+            updates and new releases, you'll always be on top of the latest and greatest manga trends. So what are you
+            waiting for? Join our community of manga fans and let Manga-Fi take you on an exciting journey of discovery and
+            fun!<br><br>
+            What is an otaku (Oh-tah-koo)?<br>People who are passionate about anime, manga, video games, and all things
+            Japanese pop culture! They love diving deep into the worlds of their favorite anime characters and can talk for
+            hours about the intricate plot lines and character arcs. Otakus are also known for their awesome cosplay skills,
+            often dressing up as their favorite characters at conventions and events. Whether you're a fan of shounen or
+            shojo, action or romance, there's an otaku out there who shares your interests and can introduce you to a whole
+            new world of fandom!
+        </p>
     </div>
 </template>
 
@@ -43,5 +43,4 @@ export default {
 .slogan {
     font-style: italic;
     margin-top: -15px;
-}
-</style>
+}</style>
