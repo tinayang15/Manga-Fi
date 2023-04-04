@@ -22,9 +22,6 @@ export default {
         password: '',
         isAuthenticated: false,
     }),
-    mounted() {
-        // window.alert()
-    },
     methods: {
         async handleSubmit(e) {
             e.preventDefault()
@@ -113,9 +110,9 @@ export default {
     color: #007af4;
 }
 
-@media only screen and (max-width: 767px) {}
+/* @media only screen and (max-width: 767px) {}
 
 @media only screen and (min-width: 768px) and (max-width: 1199px) {}
 
-@media screen and (min-width: 1200px) {}
+@media screen and (min-width: 1200px) {} */
 </style>

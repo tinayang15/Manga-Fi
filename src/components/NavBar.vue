@@ -39,16 +39,13 @@ export default {
             this.isAuthenticated = false
             localStorage.removeItem('user_id')
             localStorage.removeItem('isAuthenticated')
-            // localStorage.setItem('isAuthenticated', false)
         },
         getAuthentication() {
             const auth = localStorage.getItem('isAuthenticated')
             this.isAuthenticated = Boolean(auth)
-            // console.log(this.isAuthenticated)
         }
     }
 }
-// console.log(isAuthenticated)
 </script>
 
 <style scoped>
@@ -73,7 +70,6 @@ nav {
 .imglogo {
     display: flex;
     flex-direction: row;
-    /* background: blue; */
     width: 200px;
     justify-content: space-around;
     font-size: 15px;
@@ -135,7 +131,6 @@ nav {
 .others {
     display: flex;
     flex-direction: row;
-    /* background: green; */
     width: 800px;
     justify-content: space-around;
     align-items: center;

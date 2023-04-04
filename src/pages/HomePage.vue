@@ -10,7 +10,6 @@
                     <router-link :to='"/manga/" + manga.manga_id' class="mangaLink">
                         <img :src="manga.cover_url" alt="" class="image" />
                         <h3 class="mangaTitle">Title: {{ manga.title }}</h3>
-                        <!-- <p class="genres"> Genres: {{ manga.tags }}</p> -->
                     </router-link>
                 </div>
             </div>
@@ -31,7 +30,6 @@ export default {
     methods: {
         async getMangas() {
             const res = await axios.get(`https://manga-fi.herokuapp.com/mangalist`)
-            console.log(res)
             this.mangas = res.data.data
         }
     }
@@ -154,5 +152,5 @@ img {
     }
 }
 
-@media screen and (min-width: 1200px) {}
+/* @media screen and (min-width: 1200px) {} */
 </style>

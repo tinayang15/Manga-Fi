@@ -26,9 +26,6 @@ export default {
         newPassword: '',
         newImage: '',
     }),
-    mounted() {
-
-    },
     methods: {
         async handleSubmit(e) {
             e.preventDefault()
@@ -38,10 +35,7 @@ export default {
                 password: this.newPassword,
                 image: this.newImage
             }
-            const res = await axios.post(`https://manga-fi.herokuapp.com/users`, newUser)
-            // localStorage.setItem('user_id', res.data.id)
-            // const res = await axios.post(`http://localhost:5000/users`, newUser)
-            console.log(res)
+            await axios.post(`https://manga-fi.herokuapp.com/users`, newUser)
             this.$router.push('/login')
         },
         handleChange(name) {

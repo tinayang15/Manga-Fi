@@ -41,20 +41,14 @@ export default {
         getAuthentication() {
             const auth = localStorage.getItem('isAuthenticated')
             this.isAuth = Boolean(auth)
-            // console.log(isAuthenticated)
-            console.log(this.isAuth)
-            console.log(auth)
         },
         async getFavorites() {
             const userId = localStorage.getItem('user_id')
             const response = await axios.get(`https://manga-fi.herokuapp.com/user_manga_lists/user/${userId}`)
             console.log('response', response)
-            // const res = await axios.put(`http://127.0.0.1:5000/user_manga_lists`)
             this.favorites = response.data.map(mangaId => mangaId.favorite_list)
             const newList = this.favorites[0].map(item => item)
             this.getManga(newList)
-            console.log('favorites', this.favorites)
-            console.log('newlist', newList)
         },
         async getManga(newList) {
             const responses = []
@@ -121,9 +115,9 @@ img {
     margin-top: -10px;
 }
 
-@media only screen and (max-width: 767px) {}
+/* @media only screen and (max-width: 767px) {}
 
 @media only screen and (min-width: 768px) and (max-width: 1199px) {}
 
-@media screen and (min-width: 1200px) {}
+@media screen and (min-width: 1200px) {} */
 </style>

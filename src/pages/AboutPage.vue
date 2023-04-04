@@ -45,9 +45,9 @@ export default {
     margin-top: -15px;
 }
 
-@media only screen and (max-width: 767px) {}
+/* @media only screen and (max-width: 767px) {}
 
 @media only screen and (min-width: 768px) and (max-width: 1199px) {}
 
-@media screen and (min-width: 1200px) {}
+@media screen and (min-width: 1200px) {} */
 </style>

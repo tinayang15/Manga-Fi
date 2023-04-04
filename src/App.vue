@@ -59,7 +59,6 @@ body {
 }
 
 footer {
-  /* margin: 60px 0 0 0; */
   position: absolute;
   bottom: 0;
   width: 100%;
