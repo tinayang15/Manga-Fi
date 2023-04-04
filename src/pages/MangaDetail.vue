@@ -155,9 +155,10 @@ export default {
 img {
     width: 300px;
     height: 400px;
-    margin-top: 20px;
+    margin-top: 15px;
     border: 2px solid #D7BBA8;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1)
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
 }
 
 .titleFavorite {
